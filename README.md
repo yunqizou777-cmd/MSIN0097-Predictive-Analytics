@@ -41,9 +41,9 @@ jupyter lab telco_churn_workflow.ipynb
 python telco_churn_pipeline.py --data-path /absolute/path/to/WA_Fn-UseC_-Telco-Customer-Churn.csv
 ```
 
-## Presentation Format (Notebook Style with Six Required Headings)
+## Presentation Format
 
-Use `telco_churn_workflow.ipynb` if you want a markdown-rich, report-style notebook format similar to your preferred class notebook style.
+Use `telco_churn_workflow.ipynb`
 
 The notebook includes these exact six headings:
 
@@ -55,25 +55,6 @@ The notebook includes these exact six headings:
 6. Present final solution
 
 It writes outputs into `outputs_notebook/`.
-
-## Alternative Presentation Format (R Markdown)
-
-Use `telco_churn_workflow.Rmd` when you want code shown in clearly separated sections that mirror the coursework structure:
-
-1. Obtain dataset and frame problem
-2. Explore data
-3. Prepare data
-4. Explore models and shortlist
-5. Fine-tune and evaluate
-6. Present final solution
-
-Render command (if R + rmarkdown are installed):
-
-```bash
-Rscript -e "rmarkdown::render('telco_churn_workflow.Rmd')"
-```
-
-This R Markdown workflow writes outputs into `outputs_rmd/` so it does not overwrite your main `outputs/` run.
 
 ## What The Script Produces
 
@@ -130,24 +111,6 @@ Inside `outputs/`:
   - `workflow_evidence_tracker.md`
   - `metric_guidance.md`
 
-## Coursework Alignment (6 Steps)
-
-The script is intentionally organized around:
-
-1. Frame predictive problem.
-2. Explore data.
-3. Prepare data with leakage-safe split and preprocessing pipeline.
-4. Compare multiple models.
-5. Fine-tune and evaluate robustly (CV tuning, thresholds, subgroup/error checks).
-6. Save final artefacts + reporting outputs.
-
-## Suggested Next Refinements
-
-1. Expand CV grids and compare stability across different random seeds.
-2. Add subgroup fairness checks (`gender`, `SeniorCitizen`, `Contract`).
-3. Add a short notebook that imports outputs and turns them into report-ready charts/tables.
-4. Fill the generated appendix templates with your real interaction evidence + decisions.
-
 ## Notes
 
 - Target variable is `Churn` (`Yes`/`No`), converted to binary.
@@ -157,53 +120,17 @@ The script is intentionally organized around:
 - Current model set includes baseline + advanced models (`LogisticRegression`, `MLPClassifier`, `GradientBoostingClassifier`, `RandomForest`).
 - Metric note: this is classification, so use ROC-AUC/PR-AUC/F1 (not R-squared).
 
-## Final Submission Package (What To Upload)
-
-Upload these files/folders to GitHub (or OneDrive equivalent) so your repository meets the brief:
-
 ### Required
 
 - Project code:
   - `telco_churn_pipeline.py`
   - `telco_churn_workflow.ipynb`
-  - `telco_churn_workflow.Rmd`
 - Environment specification:
   - `requirements.txt`
 - Run and reproduction instructions:
   - `README.md`
-- Data access instructions (already covered here):
+- Data access instructions:
   - this README section: **Data Access Instructions**
-
-### Strongly Recommended (for evidence and auditability)
-
-- Workflow and agentic evidence:
-  - `AGENTIC_WORKFLOW_EVIDENCE.md`
-  - `outputs/reports/appendix_agent_usage_log_complete.md`
-  - `outputs/reports/agent_decision_register_submission.md`
-  - `outputs/tables/agent_decision_register_submission.csv`
-  - `outputs/reports/appendix_screenshot_plan.md`
-- Final report drafting support:
-  - `outputs/reports/report_2000word_near_final.md`
-  - `outputs/reports/final_compliance_check.md`
-
-### Data file policy
-
-- If redistribution is allowed, include:
-  - `WA_Fn-UseC_-Telco-Customer-Churn.csv`
-- If redistribution is not allowed, do **not** upload the CSV. Keep only source link + placement instructions in README.
-
-### Do not upload
-
-- local environment/cache files: `.venv/`, `__pycache__/`, `.ipynb_checkpoints/`, `.DS_Store`
-- unnecessary large binaries not needed for marking
-
-## GitHub Access Note (Important)
-
-- If the repository is **private**, markers cannot open it unless you explicitly grant access.
-- Safe options:
-  1. make repo **public** before submission, or
-  2. keep it private and invite module staff GitHub accounts as collaborators with at least read access.
-- A private link alone in your PDF is usually **not sufficient**.
 
 ## Troubleshooting: ModuleNotFoundError
 
